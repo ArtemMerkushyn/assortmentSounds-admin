@@ -6,6 +6,7 @@ export const NavBar = () => {
         <div className='navbar'>
             <NavLink to={'/'}>Головна</NavLink>
             <NavLink to={'vinils'}>Вінілові платівки</NavLink>
+            <NavLink to={'somepage'}>somepage</NavLink>
         </div>
     );
 }

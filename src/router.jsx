@@ -4,6 +4,7 @@ import { MainPage } from './pages/MainPage.jsx';
 import { VinilsPage } from './pages/VinilsPage.jsx';
 import { AddVinilPage } from './pages/AddVinilPage.jsx';
 import { VinilPage } from './pages/VinilPage.jsx';
+import { SomePage } from './pages/SomePage.jsx';
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: 'vinils/:id',
                 element: <VinilPage/>
+            },
+            {
+                path: 'somepage',
+                element: <SomePage/>
             },
         ]
     }
