@@ -3,6 +3,7 @@ import App from './App.jsx';
 import { MainPage } from './pages/MainPage.jsx';
 import { VinilsPage } from './pages/VinilsPage.jsx';
 import { AddVinilPage } from './pages/AddVinilPage.jsx';
+import { VinilPage } from './pages/VinilPage.jsx';
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: 'vinils/add',
                 element: <AddVinilPage/>
+            },
+            {
+                path: 'vinils/:id',
+                element: <VinilPage/>
             },
         ]
     }

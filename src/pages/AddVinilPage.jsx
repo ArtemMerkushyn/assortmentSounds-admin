@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 export const AddVinilPage = () => {
     const [vinilData, setVinilData] = useState({
-        nameVinil: '',
+        nameProduct: '',
         genre: '',
         availability: '',
         price: '',
@@ -31,7 +31,7 @@ export const AddVinilPage = () => {
     const handleSupmit = async () => {
         try {
             if (
-                !vinilData.nameVinil ||
+                !vinilData.nameProduct ||
                 !vinilData.genre ||
                 !vinilData.availability ||
                 !vinilData.price ||
@@ -50,7 +50,7 @@ export const AddVinilPage = () => {
             console.log(error);
         }
     }
-
+    
     return (
         <form className='form-add' onSubmit={e => e.preventDefault()}>
             <h3 className='title1'>Додай вінілову платівку</h3>
@@ -58,8 +58,8 @@ export const AddVinilPage = () => {
                 <h3 className='title2'>Назва товару</h3>
                 <input 
                     type="text" 
-                    value={vinilData.nameVinil}
-                    onChange={(e) => setVinilData({ ...vinilData, nameVinil: e.target.value })}
+                    value={vinilData.nameProduct}
+                    onChange={(e) => setVinilData({ ...vinilData, nameProduct: e.target.value })}
                 />
             </label>
             <label className="form-add__item">
@@ -175,7 +175,7 @@ export const AddVinilPage = () => {
                 >
                     Відмінити
                 </button>
-         </div>
+            </div>
         </form>
     );
 }
