@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axios.js';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ProductLink } from '../components/ProductLink';
@@ -8,7 +8,7 @@ export const VinilsPage = () => {
 
     const fetchVinils = async () => {
         try {
-            const { data } = await axios.get('http://localhost:8080/api/vinils');
+            const { data } = await axios.get('/vinils');
             setVinils(data);
             return data;
         } catch (error) {

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axios.js'
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -43,8 +43,9 @@ export const AddVinilPage = () => {
             ) {
                return toast('Всі поля повинні бути заповнені');
             }
-            const { data } = await axios.post('http://localhost:8080/api/vinils', vinilData);
-            console.log(vinilData.genre)
+            const { data } = await axios.post('/vinils', vinilData);
+            navigate('/vinils');
+            window.location.reload();
             return data;
         } catch (error) {
             console.log(error);

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axios.js';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -14,7 +14,7 @@ export const VinilPage = () => {
     const params = useParams();
 
     const fetchVinil = useCallback(async () => {
-        const { data } = await axios.get(`http://localhost:8080/api/vinils/${params.id}`);
+        const { data } = await axios.get(`/vinils/${params.id}`);
         setVinil(data);
     }, [params.id]);
 
