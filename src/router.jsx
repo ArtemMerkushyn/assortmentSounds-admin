@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import { MainPage } from './pages/MainPage.jsx';
 import { VinilsPage } from './pages/VinilsPage.jsx';
+import { AddVinilPage } from './pages/AddVinilPage.jsx';
 
 export const router = createBrowserRouter([
     {
@@ -13,9 +14,13 @@ export const router = createBrowserRouter([
                 element: <MainPage/>
             },
             {
-                path: '/vinils',
+                path: 'vinils',
                 element: <VinilsPage/>
-            }
+            },
+            {
+                path: 'vinils/add',
+                element: <AddVinilPage/>
+            },
         ]
     }
 ]);

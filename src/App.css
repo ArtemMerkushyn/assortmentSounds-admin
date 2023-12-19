@@ -4,6 +4,13 @@
     padding: 0;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
 a {
     text-decoration: none;
 }
@@ -14,12 +21,75 @@ a {
     margin: 0 auto;
 }
 
+.add {
+    width: 30px;
+    height: 30px;
+    background: #b8b8b8;
+    border-radius: 10px;
+    position: relative;
+    transition: all .1s linear;
+}
+
+.add:hover {
+    background: #000;
+}
+
+.add::before {
+    content: '';
+    height: 3px;
+    width: 70%;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+}
+
+.add::after {
+    content: '';
+    height: 70%;
+    width: 3px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+}
+
+.title1 {
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.title2 {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+.btn-wrapper {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
 /*===========================================================================================================*\
 #components
 \*===========================================================================================================*/
 .navbar {
+    padding: 5px 0;
     display: flex;
     gap: 10px;
+    border-bottom: 2px solid #b8b8b8;
+    margin-bottom: 10px;
 }
 
 .navbar a {
@@ -33,4 +103,49 @@ a {
 .navbar a.active,
 .navbar a:hover {
     color: #000;
+}
+
+/*===========================================================================================================*\
+#pages
+\*===========================================================================================================*/
+/*===========================================================================================================*\
+#VinilPage
+\*===========================================================================================================*/
+.vinil-page__header {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+/*===========================================================================================================*\
+#AddVinilPage
+\*===========================================================================================================*/
+.form-add {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-add__item input,
+.form-add__item textarea{
+    width: 100%;
+    padding: 5px;
+}
+
+.form-add__item textarea {
+    min-height: 84px;
+    font-family: inherit;
+    width: 100%;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.form-add__item select {
+    padding: 5px;
+}
+
+.form-add__item-imgs  img{
+    width: 100%;
 }
