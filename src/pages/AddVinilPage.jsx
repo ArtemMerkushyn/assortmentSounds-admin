@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextareaAutosize from 'react-textarea-autosize';
+import { toast } from 'react-toastify';
 
 export const AddVinilPage = () => {
     const [vinilData, setVinilData] = useState({
@@ -16,13 +18,38 @@ export const AddVinilPage = () => {
         imgUrl: Array(3).fill(''),
     });
 
+    
+
     const navigate = useNavigate();
 
     const handleImageChange = (event, index) => {
         const newImg = [...vinilData.imgUrl];
         newImg[index] = event.target.value;
         setVinilData({ ...vinilData, imgUrl: newImg });
-     };
+    };
+
+    const handleSupmit = async () => {
+        try {
+            if (
+                !vinilData.nameVinil ||
+                !vinilData.genre ||
+                !vinilData.availability ||
+                !vinilData.price ||
+                !vinilData.productCode ||
+                !vinilData.conditionGoods ||
+                !vinilData.producer ||
+                !vinilData.releaseDate ||
+                !vinilData.description
+            ) {
+               return toast('Всі поля повинні бути заповнені');
+            }
+            const { data } = await axios.post('http://localhost:8080/api/vinils', vinilData);
+            console.log(vinilData.genre)
+            return data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <form className='form-add' onSubmit={e => e.preventDefault()}>
@@ -49,6 +76,7 @@ export const AddVinilPage = () => {
                     value={vinilData.availability}
                     onChange={(e) => setVinilData({ ...vinilData, availability: e.target.value })}
                 >
+                    <option value="">вибрати</option>
                     <option value="Alternative Rock">В наявності</option>
                     <option value="Heavy Metal">Скоро буде</option>
                 </select>
@@ -59,6 +87,7 @@ export const AddVinilPage = () => {
                     value={vinilData.genre}
                     onChange={(e) => setVinilData({ ...vinilData, genre: e.target.value })}
                 >
+                    <option value="">вибрати</option>
                     <option value="Alternative Rock">Alternative Rock</option>
                     <option value="Heavy Metal">Heavy Metal</option>
                     <option value="Blues">Blues</option>
@@ -84,7 +113,7 @@ export const AddVinilPage = () => {
             <label className="form-add__item">
                 <h3 className='title2'>Ціна товару</h3>
                 <input 
-                    type="text" 
+                    type="number" 
                     value={vinilData.price}
                     onChange={(e) => setVinilData({ ...vinilData, price: e.target.value })}
                 />
@@ -95,6 +124,7 @@ export const AddVinilPage = () => {
                     value={vinilData.conditionGoods}
                     onChange={(e) => setVinilData({ ...vinilData, conditionGoods: e.target.value })}
                 >
+                    <option value="">вибрати</option>
                     <option value="Новий">Новий</option>
                     <option value="б/у">б/у</option>
                 </select>
@@ -135,6 +165,7 @@ export const AddVinilPage = () => {
                 <button
                     className='btn'
                     type='submit'
+                    onClick={handleSupmit}
                 >
                     Добавити
                 </button>
