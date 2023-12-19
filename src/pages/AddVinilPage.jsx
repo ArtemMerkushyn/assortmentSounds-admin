@@ -77,8 +77,8 @@ export const AddVinilPage = () => {
                     onChange={(e) => setVinilData({ ...vinilData, availability: e.target.value })}
                 >
                     <option value="">вибрати</option>
-                    <option value="Alternative Rock">В наявності</option>
-                    <option value="Heavy Metal">Скоро буде</option>
+                    <option value="В наявності">В наявності</option>
+                    <option value="Скоро буде">Скоро буде</option>
                 </select>
             </label>
             <label className="form-add__item">

@@ -191,6 +191,64 @@ a {
     gap: 10px;
     flex-wrap: wrap;
 }
+
+.vinil-page__wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.vinil-page__item:nth-child(1) {
+    width: 50%;
+    max-width: 614px;
+    max-height: 614px;
+}
+
+.slider__items {
+    position: relative;
+}
+
+.slider__item img {
+    width: 100%;
+    height: 100%;
+}
+
+.slick-prev {
+    left: 10px !important;
+    z-index: 10;
+}
+
+.slick-next {
+    right: 40px !important;
+}
+
+.slick-next:before,
+.slick-prev::before {
+    font-size: 50px !important;
+}
+
+.slick-dots {
+    width: 100px !important;
+    border-radius: 50px;
+    background: #fff;
+    bottom: 25px !important;
+    left: 50%;
+    transform: translateX(-59%);
+    z-index: 10;
+}
+
+.vinil-page__item:nth-child(2) {
+    width: 50%;
+}
+
+.vinil-page__item textarea {
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    caret-color: transparent;
+    border: none;
+    outline: none;
+}
+
 /*===========================================================================================================*\
 #AddVinilPage
 \*===========================================================================================================*/
